@@ -1,7 +1,7 @@
 const totalStars = 1000;
 const maxBlur = 40;
 const minBlur = 15;
-const standardSpread = 1;
+const standardSpread = 1.3;
 
 function loadStars() {
 	const main = document.querySelector("main");
@@ -43,19 +43,6 @@ function loadStars() {
 }
 
 function animation() {
-	// setInterval(() => {
-	// 	for (let x = 0; x < totalStars; x++) {
-	// 		const star = document.getElementsByClassName("stars")[x];
-	// 		// const interval = star.style.transition.split(" ")[1].split("")[0] * 1000;
-	// 		const boxShadow = star.style.boxShadow;
-	// 		const blur = parseInt(boxShadow.split(" ")[5].split("px")[0]);
-
-	// 		star.style.boxShadow = `0px 0px ${
-	// 			blur === 15 ? maxBlur : minBlur
-	// 		}px 1px rgb(250, 250, 250)`;
-	// 	}
-	// }, 1000);
-
 	for (let x = 0; x < totalStars; x++) {
 		const star = document.getElementsByClassName("stars")[x];
 		const interval = star.style.transition.split(" ")[1].split("")[0] * 1000;
