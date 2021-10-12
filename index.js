@@ -1,4 +1,4 @@
-const totalStars = 1000;
+const totalStars = innerWidth <= 375 ? 200 : innerWidth <= 768 ? 300 : 1000;
 const maxBlur = 40;
 const minBlur = 15;
 const standardSpread = 1.3;
@@ -14,10 +14,7 @@ function loadStars() {
 		const top = Math.floor(Math.random() * innerHeight);
 		const left = Math.floor(Math.random() * innerWidth);
 		const sizes = Math.floor(Math.random() * (4 - 0) + 0);
-
-		// const blur = Math.floor(Math.random() * (maxBlur - minBlur) + minBlur);
 		const blur = minBlur;
-		// const spread = Math.random() * (5 - 1) + 1;
 		const spread = standardSpread;
 		const borderRadius = sizes / 2;
 		const transition = Math.ceil(Math.random() * 2);
