@@ -1,11 +1,21 @@
+const main = document.querySelector("main");
 const totalStars = innerWidth <= 375 ? 200 : innerWidth <= 768 ? 300 : 1000;
 const maxBlur = 40;
 const minBlur = 15;
 const standardSpread = 1.3;
 
-function loadStars() {
-	const main = document.querySelector("main");
+const shootingStar = document.createElement("div");
+shootingStar.setAttribute("id", "shooting-star");
+shootingStar.style.position = "absolute";
+shootingStar.style.width = "4px";
+shootingStar.style.height = "4px";
+shootingStar.style.borderRadius = "2px";
+shootingStar.style.background = "white";
+shootingStar.style.transition = "0.5s";
+shootingStar.style.boxShadow = "0px 0px 15px 5px white";
+main.appendChild(shootingStar);
 
+function loadStars() {
 	for (let x = 0; x < totalStars; x++) {
 		const star = document.createElement("div");
 
@@ -55,3 +65,29 @@ function animation() {
 		}, interval);
 	}
 }
+
+function showShootingStar() {
+	const initialTop = Math.floor(Math.random() * innerHeight);
+	const initialLeft = Math.floor(Math.random() * innerWidth);
+
+	const finalTop = Math.floor(Math.random() * innerHeight);
+	const finalLeft = Math.floor(Math.random() * innerWidth);
+
+	shootingStar.style.top = `${initialTop}px`;
+	shootingStar.style.left = `${initialLeft}px`;
+	shootingStar.style.opacity = 0;
+
+	setTimeout(() => {
+		shootingStar.style.opacity = 1;
+		shootingStar.style.top = `${finalTop}px`;
+		shootingStar.style.left = `${finalLeft}px`;
+
+		setTimeout(() => {
+			shootingStar.style.opacity = 0;
+		}, 400);
+	}, 1000);
+}
+
+showShootingStar();
+
+setInterval(() => showShootingStar(), 5000);
