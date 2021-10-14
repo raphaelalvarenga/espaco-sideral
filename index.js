@@ -2,7 +2,7 @@ const main = document.querySelector("main");
 const totalStars = innerWidth <= 375 ? 200 : innerWidth <= 768 ? 300 : 1000;
 const maxBlur = 40;
 const minBlur = 15;
-const standardSpread = 1.3;
+const standardSpread = 2;
 
 const shootingStar = document.createElement("div");
 shootingStar.setAttribute("id", "shooting-star");
